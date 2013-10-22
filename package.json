@@ -2,11 +2,15 @@
 	"name": "node-mvc",
 	"description": "A boiletplate for developing MVC applications with node js",
 	"version": "0.0.1",
+	"private": false,
 	"dependencies": {
-		"express": "3.x",
-		"mongoose": "3.6.x",
-		"connect-mongo": "0.3.x",
-		"jade": "0.35.x"
+		"express": "latest",
+		"mongoose": "latest",
+		"connect-mongo": "latest",
+		"jade": "latest"
+	},
+	"devDependencies": {
+		"nodemon": "latest"
 	},
 	"repository" : {
 		"type" : "git",
