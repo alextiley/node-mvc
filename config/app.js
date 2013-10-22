@@ -9,12 +9,12 @@ module.exports = {
 		});
 
 		app.set('cookies', {
-			secret: 'my-secret'
+			secret: 'i-love-cookies'
 		});
 
 		app.set('db', {
-			url: 'mongodb://localhost/my-database',
-			username: 'username',
+			url: 'mongodb://localhost/blog',
+			username: 'blog',
 			password: 'password'
 		});
 
@@ -24,6 +24,7 @@ module.exports = {
 			models: global.baseDir + '/models/',
 			assets: global.baseDir + '/www/',
 			views: global.baseDir + '/views/',
+			utils: global.baseDir + '/utils/',
 			root: global.baseDir + '/'
 		});
 

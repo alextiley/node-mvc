@@ -1,7 +1,8 @@
 extend layouts/default
 
 block content
-
-	h1 Internal server error (500)
-	p Sorry, but somebody has broken the site. Please forward the message below to a member of our support team:
-	pre #{error}
+	.row
+		.large-12.columns
+			h2 Internal server error (500)
+			p Sorry, but somebody has broken the site. Please forward the message below to a member of our support team:
+			pre #{error}

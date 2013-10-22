@@ -1,15 +1,5 @@
 module.exports = function (app) {
 
-	// Get the current environment
-	global.env = process.env.NODE_ENV || 'development';
-
-	// Set a global reference to this base directory
-	global.baseDir = __dirname;
-
-	// Invoke environment specific configuration
-	require(global.baseDir + '/config/app')[env](app);
-
-	// Utilities
 	global.utils = {
 		/*	
 		 *	Use an absolute path to search for project modules
