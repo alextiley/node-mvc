@@ -3,9 +3,9 @@ var fs = require('fs'),
 
 module.exports = function (app) {
 
-	fs.readdirSync(config.paths.controllers).forEach(function (file) {
-		if (file.substr(-3) == '.js') {
-			route = utils.include(config.paths.controllers + file);
+	fs.readdirSync(app.get('paths').controllers).forEach(function (file) {
+		if (file.substr(-3) === '.js') {
+			route = utils.include(file, app.get('paths').controllers);
 			route.controller(app);
 		}
 	});

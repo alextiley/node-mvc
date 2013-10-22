@@ -1,6 +1,6 @@
 {
 	"name": "node-mvc",
-	"description": "A boiletplate for developing MVC applications with node js",
+	"description": "A boilerplate for developing MVC applications with node js.",
 	"version": "0.0.1",
 	"private": false,
 	"dependencies": {

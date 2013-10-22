@@ -19,7 +19,7 @@ module.exports = function (app) {
 	app.set('view engine', 'jade');
 
 	// Tell express where to look for view components
-	app.set('views', config.paths.views);
+	app.set('views', app.get('paths').views);
 
 	// Expose package.json to views
 	app.use(function (request, response, next) {
@@ -38,9 +38,9 @@ module.exports = function (app) {
 
 	// Provides cookie-based sessions with mongo storage
 	app.use(express.session({
-		secret: config.cookies.secret,
+		secret: app.get('cookies').secret,
 		store: new mongoStore({
-			url: config.db.url
+			url: app.get('db').url
 		})
 	}));
 
@@ -48,7 +48,7 @@ module.exports = function (app) {
 	app.use(app.router);
 
 	// Set the assets path
-	app.use(express.static(config.paths.assets));
+	app.use(express.static(app.get('paths').assets));
 
 	// Route 404 response codes to a proper template
 	app.use(function(request, response, next){
