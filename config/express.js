@@ -1,7 +1,6 @@
 var express = require('express'),
 	mongoStore = require('connect-mongo')(express),
-	pkg = utils.include('/package.json'),
-	path = require('path');
+	pkg = utils.include('/package.json');
 
 module.exports = function (app) {
 
