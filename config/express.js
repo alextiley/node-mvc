@@ -14,6 +14,9 @@ module.exports = function (app) {
 		app.locals.pretty = true;
 	});
 
+	// Sets the favicon path (default is an express favicon)
+	app.use(express.favicon(app.get('paths').assets + 'img/favicon.ico')); 
+
 	// Set .jade as the default template extension
 	app.set('view engine', 'jade');
 
@@ -22,7 +25,7 @@ module.exports = function (app) {
 
 	// Expose package.json to views
 	app.use(function (request, response, next) {
-		response.locals.pkg = pkg;
+		app.locals.pkg = pkg;
 		next();
 	});
 
@@ -43,25 +46,36 @@ module.exports = function (app) {
 		})
 	}));
 
-	// Allows mounting of roots
-	app.use(app.router);
-
 	// Set the assets path
 	app.use(express.static(app.get('paths').assets));
 
+	/*
+	// Include common method, invoked on all route requests - might be useful in the future?
+	app.all('*', function (request, response, next) {
+		utils.include(app.get('paths').controllers + 'common/common')(request, response, app);
+		next();
+	});
+	*/
+
+	// Allows mounting of roots
+	app.use(app.router);
+
 	// Route 404 response codes to a proper template
-	app.use(function(request, response, next){
+	app.use(function(request, response, next) {
 		response.status(404).render('404', {
-			url: utils.getAbsoluteUrl(request)
+			url: utils.getAbsoluteUrl(request),
+			page: 'not_found'
 		});
 	});
 
 	// Route 500 response codes to a proper template
-	app.use(function(error, request, response, next){
+	app.use(function(error, request, response, next) {
 		response.status(500).render('500', {
 			url: utils.getAbsoluteUrl(request),
-			error: error.stack
+			error: error.stack,
+			page: 'server_error'
 		});
+
 	});
 
 };
