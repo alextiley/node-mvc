@@ -11,9 +11,6 @@ require(global.baseDir + '/config/app')[env](app);
 // Application utility methods
 require('./utils/app')(app);
 
-// Bootstrap database connection
-mongo.connect(app.get('db').url);
-
 // Express.js settings
 utils.include('express', app.get('paths').config)(app);
 
