@@ -1,5 +1,4 @@
-var mongo = require('mongoose'),
-	app = require('express')();
+var app = require('express')();
 
 // Set some globals
 global.env = process.env.NODE_ENV || 'development';
