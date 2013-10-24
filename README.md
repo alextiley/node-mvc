@@ -1,8 +1,7 @@
-
 node-mvc
 =========
 
-A boiletplate for developing MVC applications with node js.
+A boilerplate for developing MVC applications with node js.
 
 * For configuration, app.set('myVariable', 'myValue') translates to #{settings.myVariable} in a template
 * ...to retrieve this within the application, app.get('myVariable') should be used
