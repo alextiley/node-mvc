@@ -1,5 +1,5 @@
-node-mvc
-========
+node-mvc-simple
+===============
 
 A boilerplate for developing MVC applications with node.js and express.js.
 
