@@ -1,23 +1,23 @@
 node-mvc
-=========
+========
 
-A boilerplate for developing MVC applications with node js.
+A boilerplate for developing MVC applications with node.js and express.js.
 
-* For configuration, app.set('myVariable', 'myValue') translates to #{settings.myVariable} in a template
-* ...to retrieve this within the application, app.get('myVariable') should be used
-* You can also set object: app.set('myObject', {'key': 'value'})
-* ...retrieved like: app.get('myObject').key or in a template: #{myObject.key}
+Features
+--------
+* Quickly run multiple sub-apps under one express http server using mounted paths
+* Mapping of context paths and root app folders (/apps/mount.json)
+* Environment specific configuration for the http server (/config.json)
+* Environment specific configuration for individual apps
+* Configuration object containing path structures and environment specific config
+* Bootstrap methods for including all mongoose models from a single directory
+* Bootstrap methods for including all controllers from a single directory
+* Shared directory, allowing you to share code modules from multiple apps with ease
 
-* To pass data from a controller, app.locals.var = 'value' is the way to go.
-* That's accessed in the template like so: #{var}
-* It's also possible to set multiple variables in one go:
-* app.locals({var1: 'value1', var2: 'value2'});
+User Guide
+----------
+Coming soon...
 
-* Request params are done like this:
-* request.params.page
-
-* Redirecting a response:
-* response.redirect('/some/path');
-
-* Send a JSON response:
-* response.json({...})
+* /config.json
+* /app/mounts.json
+* /app/{myApplication}/config.json

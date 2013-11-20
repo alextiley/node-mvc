@@ -1,20 +1,22 @@
-var app = require('express')();
+var env = process.env.NODE_ENV || 'development',
+	express = require('express'),
+	config = {},
+	bootstrap;
 
-// Set some globals
-global.env = process.env.NODE_ENV || 'development';
-global.baseDir = __dirname;
+// Environment specific configuration
+config = require(__dirname + '/config.json')[env];
 
-// Invoke environment specific configuration
-require(global.baseDir + '/config/app')[env](app);
+// Store environment
+config.env = env;
 
-// Application utility methods
-require('./utils/app')(app);
+// Get path configuration
+config.paths = require(__dirname + '/core/paths')(__dirname);
 
-// Express.js settings
-utils.include('express', app.get('paths').config)(app);
+// Get mount configuration (sub-apps)
+config.mounts = require(config.paths.apps.mounts);
 
-// Bootstrap the controllers
-utils.include('routes', app.get('paths').config)(app);
+// Pull in the bootstrapper module 
+bootstrap = require(config.paths.core.bootstrap);
 
-// Start the application
-app.listen(app.get('server').port);
+// Dynamically pull in each sub-app context
+bootstrap.getMounts(express(), config);

@@ -1,0 +1,14 @@
+[
+	{
+		"directory": "default",
+		"path": "/"
+	},
+	{
+		"directory": "site-a",
+		"path": "/site-a"
+	},
+	{
+		"directory": "site-b",
+		"path": "/site-b"
+	}
+]

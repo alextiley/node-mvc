@@ -1,16 +1,26 @@
 {
 	"name": "node-mvc",
 	"description": "A boilerplate for developing MVC applications with node js.",
-	"version": "0.0.1",
+	"version": "0.0.2",
+	"author": "Alex Tiley",
+	"keywords": [
+		"mvc"
+	],
 	"private": false,
 	"dependencies": {
 		"express": "latest",
-		"mongoose": "latest",
-		"connect-mongo": "latest",
-		"jade": "latest"
+		"extend": "latest"
+	},
+	"contributors": {
+		"name": "Alex Tiley",
+		"email": "alextiley@gmail.com"
 	},
 	"devDependencies": {
+		"mocha": "latest",
 		"nodemon": "latest"
+	},
+	"scripts": {
+		"start": "nodemon --debug application.js"
 	},
 	"repository" : {
 		"type" : "git",
