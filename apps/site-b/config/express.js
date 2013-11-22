@@ -1,6 +1,6 @@
 module.exports = function (app, config) {
 	
-	var paths = config.paths,
+	var path = require('path'),
 		express = require('express');
 
 	// Development-specific configuration
@@ -15,20 +15,20 @@ module.exports = function (app, config) {
 	app.set('view engine', 'jade');
 
 	// Set the assets path
-	app.use(express.static(paths.app.assets));
+	app.use(express.static(config.paths.app.assets));
 
 	// Set the base directory
 	app.use(function (request, response, next) {
-		app.locals.basedir = paths.app.views;
+		app.locals.basedir = config.paths.app.views;
 		next();
 	});
 
 	// Sets the favicon path (default is an express favicon)
-	app.use(express.favicon(paths.app.assets + 'img/favicon.ico'));
+	app.use(express.favicon(path.join(config.paths.app.assets, 'img/favicon.ico')));
 
 	// Set the base view path
 	app.use(function (request, response, next) {
-		app.set('views', paths.app.views);
+		app.set('views', config.paths.app.views);
 		next();
 	});
 
